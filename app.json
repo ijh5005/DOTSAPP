@@ -1,0 +1,9 @@
+{
+  "name": "Dots",
+  "displayName": "Dots",
+  "expo": {
+    "name": "Dots",
+    "slug": "app-slug",
+    "sdkVersion": "33.0.0",
+  }
+}
