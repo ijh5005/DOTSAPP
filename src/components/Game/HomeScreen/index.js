@@ -52,7 +52,13 @@ const HomeScreen = (props) => {
   const endingColor = 1;
   let colorAnimation = new Animated.Value(startingColor);
 
-  const animateScoreBoard = () => {
+  const animateScoreBoard = (obj) => {
+    // console.log("home")
+    // debugger
+    // console.log(props)
+    if(obj && obj.finished){
+      return animateScoreBoard();
+    }
     Animated.timing(
       colorAnimation,
       { toValue: endingColor, duration: 4000 }
