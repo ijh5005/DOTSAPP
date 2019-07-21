@@ -49,8 +49,6 @@ const PlayGame = (props) => {
     sounds.inGameMusic.pause();
   })
 
-  const { navigate } = props.navigation;
-
   const [currentLevel, setCurrentLevel] = useState("level1");
   const [board, setBoard] = useState(util.breakRefAndCopy(gameBoards[currentLevel]));
   const [playerTurn, setPlayerTurn] = useState("first");
@@ -188,17 +186,17 @@ const PlayGame = (props) => {
 
   useEffect(() => {
     const setDefaultBombs = async () => {
-      // const allStorage = await AsyncStorage.getAllKeys();
-      // if(allStorage.includes("completedLevels")){
-      //   const completedLevels = JSON.parse(await AsyncStorage.getItem("completedLevels"));
-      //   if(completedLevels.includes(currentLevel)){
-      //     setCurrentLevelBombs([])
-      //   } else {
-      //     setCurrentLevelBombs(config.levelDefaultBombs[currentLevel])
-      //   }
-      // } else {
+    //   const allStorage = await AsyncStorage.getAllKeys();
+    //   if(allStorage.includes("completedLevels")){
+    //     const completedLevels = JSON.parse(await AsyncStorage.getItem("completedLevels"));
+    //     if(completedLevels.includes(currentLevel)){
+    //       setCurrentLevelBombs([])
+    //     } else {
+    //       setCurrentLevelBombs(config.levelDefaultBombs[currentLevel])
+    //     }
+    //   } else {
         setCurrentLevelBombs(config.levelDefaultBombs[currentLevel])
-      // }
+    //   }
     }
     setDefaultBombs();
     setTraining(util.breakRefAndCopy(trainRestrictions[currentLevel]));
@@ -491,7 +489,7 @@ const PlayGame = (props) => {
   }
 
   const changeLevel = (level, levelText) => {
-    if((levelText !== "x" || !levelText) && currentLevel !== level){
+    if((levelText !== "x" || !levelText)){
       setBoard(util.breakRefAndCopy(gameBoards[level]));
       setPlayerTurn("first");
       setBorders(util.breakRefAndCopy(boxInfo.borderCount));
@@ -622,6 +620,7 @@ const PlayGame = (props) => {
         footIndexes={footIndexes}
         blinkingEdge={blinkingEdge}
         blinkingBox={blinkingBox}
+        navigation={props.navigation}
         key={index} />)})}
 
     <View style={styles.bombSection} >

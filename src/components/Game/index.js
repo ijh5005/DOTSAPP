@@ -7,7 +7,7 @@ import { images } from "./util/Images";
 import { config } from "./util/Settings";
 
 const Game = (props) => {
-  const { navigate, navigation } = props.navigation;
+  const { navigate } = props.navigation;
   // const clearAllStorage = async () => await AsyncStorage.clear();
   const startGame = () => navigate("Game");
   const motivationPage = () => navigate("Motivation");

@@ -23,12 +23,3 @@ const MainNavigator = createStackNavigator({
 });
 
 export default createAppContainer(MainNavigator);
-// export default class App extends Component<Props> {
-//   render() {
-//     return (
-//       <View>
-//         <Game />
-//       </View>
-//     );
-//   }
-// }
