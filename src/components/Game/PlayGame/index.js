@@ -104,7 +104,7 @@ const PlayGame = (props) => {
     } else {
       setTimeout(() => {
         setHelpText("");
-      }, 6000)
+      }, 2000)
     }
   }, [training, playerTurn])
 
