@@ -14,7 +14,7 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [14, 15],
       sides: ["right", "left"],
-      text: "take turns selecting lines"
+      text: "create a box to score"
     }, {
       type: "clickSide",
       boxes: [21, 22],
@@ -22,27 +22,25 @@ export const trainRestrictions = {
     }, {
       type: "clickSide",
       boxes: [8, 14],
-      sides: ["bottom", "top"],
-      text: "form a box to score"
+      sides: ["bottom", "top"]
     }]
   },
   level2: {
     yourMoves: [{
       type: "explosionClick",
       bomb: "cheetah",
-      text: "Select the Cheetah bomb"
+      text: "Use the bombs to",
+      text2: "remove the",
+      text3: "Foot Of Oppression"
     }, {
       type: "boxClick",
       clickBox: 20,
-      text: "Now select a square to use the bomb... It explodes left to right"
     }, {
       type: "explosionClick",
       bomb: "panther",
-      text: "Select the Panther bomb"
     }, {
       type: "boxClick",
-      clickBox: 15,
-      text: "Each bomb has it's own explosion pattern"
+      clickBox: 15
     }]
   },
   level3: null,
