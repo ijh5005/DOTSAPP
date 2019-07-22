@@ -73,6 +73,7 @@ const PlayGame = (props) => {
   const [currentLevelBombs, setCurrentLevelBombs] = useState([]);
   const [consecutiveTurns, setConsecutiveTurns] = useState(0);
   const [screenText, setScreenText] = useState("");
+  const [helpText, setHelpText] = useState("");
   const [training, setTraining] = useState("");
 
   const checkComputerMove = () => {
@@ -87,6 +88,19 @@ const PlayGame = (props) => {
       setScreenText("")
     }, 1000)
   }
+
+  useEffect(() => {
+    const restriction = training && training.yourMoves && training.yourMoves[0];
+    if (restriction && playerTurn === "first"){
+      if(restriction.text || restriction.text === ""){
+        setHelpText({
+          text: restriction.text,
+          text2: restriction.text2,
+          text3: restriction.text3
+        });
+      }
+    }
+  }, [training, playerTurn])
 
   useEffect(() => {
     setTimeout(() => {
@@ -121,7 +135,7 @@ const PlayGame = (props) => {
           if(consecutiveTurns === 4){
             showScreenText("I SEE YOU");
             sounds.iseeu.play();
-          } else if (consecutiveTurns === 6) {
+          } else if (consecutiveTurns === 7) {
             showScreenText("OKAY")
             sounds.okay.play();
           }
@@ -138,21 +152,23 @@ const PlayGame = (props) => {
   }, [playerTurn, whoScored]); // this is only used if borders or connectedBoxes change
 
   useEffect(() => {
-    let yourScoreCount = 0;
-    let computerScoreCount = 0;
-    for(let i in whoScored){
-      if(whoScored[i] === "first"){
-        yourScoreCount++;
-      } else if (whoScored[i] === "second") {
-        computerScoreCount++;
+    setTimeout(() => {
+      let yourScoreCount = 0;
+      let computerScoreCount = 0;
+      for(let i in whoScored){
+        if(whoScored[i] === "first"){
+          yourScoreCount++;
+        } else if (whoScored[i] === "second") {
+          computerScoreCount++;
+        }
       }
-    }
-    setYourScore(yourScoreCount);
-    setComputerScore(computerScoreCount);
-    if(yourScoreCount + computerScoreCount === 36){
-      setGameOver(true)
-    }
-  }, [whoScored])
+      setYourScore(yourScoreCount);
+      setComputerScore(computerScoreCount);
+      if(yourScoreCount + computerScoreCount === 36){
+        setGameOver(true)
+      }
+    }, 800)
+  }, [whoScored, explodingBoxes])
 
   useEffect(() => {
     // if(gameIsOver && youWin){
@@ -415,10 +431,8 @@ const PlayGame = (props) => {
       return sounds.wrong.play();
     }
 
-    setTimeout(() => {
-      sounds.explosion.setCurrentTime(0);
-      sounds.explosion.play();
-    }, 250)
+    sounds.explosion.setCurrentTime(0);
+    sounds.explosion.play();
 
     const bomb = activeBomb.slice(0, -1);
 
@@ -489,6 +503,7 @@ const PlayGame = (props) => {
   }
 
   const changeLevel = (level, levelText) => {
+    setScreenText("")
     if((levelText !== "x" || !levelText)){
       setBoard(util.breakRefAndCopy(gameBoards[level]));
       setPlayerTurn("first");
@@ -593,6 +608,7 @@ const PlayGame = (props) => {
         const restrictionIndex = restriction.boxes.indexOf(index);
         blinkingEdge = (restrictionIndex !== -1) && restriction.sides[restrictionIndex];
       }
+
       if(restriction && (restriction.type === "boxClick") && (playerTurn === "first") && (index === restriction.clickBox)){
         blinkingBox = true;
       }
@@ -693,12 +709,13 @@ const PlayGame = (props) => {
         isLastBoard={currentLevel === config.finalLevel}
       />}
 
+    {screenText.length !== 0 && <ScreenText text={screenText} />}
+    {helpText.length !== 0 && <ScreenText text={helpText} font={30} />}
+
     {showInformativeScreen && <InformativeScreen
         facts={informationType}
         close={closeInformationScreen}
       />}
-
-    {screenText.length !== 0 && <ScreenText text={screenText} />}
 
   </View>)
 
