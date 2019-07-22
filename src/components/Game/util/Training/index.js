@@ -46,10 +46,10 @@ export const trainRestrictions = {
       clickBox: 15
     }]
   },
-  level3: null,
-  level4: null,
-  level5: null,
-  level6: null,
-  level7: null,
-  level8: null,
+  level3: {yourMoves: [{text: ""}]},
+  level4: {yourMoves: [{text: ""}]},
+  level5: {yourMoves: [{text: ""}]},
+  level6: {yourMoves: [{text: ""}]},
+  level7: {yourMoves: [{text: ""}]},
+  level8: {yourMoves: [{text: ""}]},
 }

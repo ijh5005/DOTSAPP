@@ -92,19 +92,13 @@ const PlayGame = (props) => {
   useEffect(() => {
     const restriction = training && training.yourMoves && training.yourMoves[0];
     if (restriction && playerTurn === "first"){
-      setTimeout(() => {
-        if(restriction.text){
-          setHelpText({
-            text: restriction.text,
-            text2: restriction.text2,
-            text3: restriction.text3
-          });
-        }
-      }, 800)
-    } else {
-      setTimeout(() => {
-        setHelpText("");
-      }, 2000)
+      if(restriction.text || restriction.text === ""){
+        setHelpText({
+          text: restriction.text,
+          text2: restriction.text2,
+          text3: restriction.text3
+        });
+      }
     }
   }, [training, playerTurn])
 
