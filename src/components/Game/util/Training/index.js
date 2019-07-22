@@ -23,15 +23,18 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [8, 14],
       sides: ["bottom", "top"]
+    }, {
+      type: "clickSide",
+      boxes: [25, 26],
+      sides: ["right", "left"]
     }]
   },
   level2: {
     yourMoves: [{
       type: "explosionClick",
       bomb: "cheetah",
-      text: "Use the bombs to",
-      text2: "remove the",
-      text3: "Foot Of Oppression"
+      text: "Use bombs to remove",
+      text2: "Foot Of Oppression"
     }, {
       type: "boxClick",
       clickBox: 20,

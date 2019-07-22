@@ -69,7 +69,7 @@ const GameBlock = (props) => {
   //   inputRange: [ 0, 1 ],
   //   outputRange: [ '#49115e', '#b57800' ]
   // });
-
+  //
   // useEffect(() => {
   //   const animateScoreBoard = (obj) => {
   //     Animated.timing(
@@ -84,6 +84,23 @@ const GameBlock = (props) => {
   //   }
   //   animateScoreBoard();
   // }, [])
+
+  let stopAnimation = false;
+  const startingColor = 0;
+  const endingColor = 1;
+  let colorAnimation = new Animated.Value(startingColor);
+  const letterColor = colorAnimation.interpolate({
+    inputRange: [ 0, 1 ],
+    outputRange: [ '#49115e', '#F9A600' ]
+  });
+
+  const animateScoreBoard = (obj) => {
+    Animated.timing(
+      colorAnimation,
+      { toValue: endingColor, duration: 500, delay: 500 }
+    ).start();
+  }
+  animateScoreBoard();
 
   const scoreColor = (scored === "second") && "#2b0938";
   let topBorderColor = (borderColors[0] === "first") ? "#b57800" : (borderColors[0] === "second") ? "#980000" : "rgb(73, 17, 94)";
@@ -124,8 +141,8 @@ const GameBlock = (props) => {
   }
 
   const styles = {
-    box: { // replace #c5c5f3 with letter when ok to animate
-      backgroundColor: blinkingBox ? "#F9A600" : (scoreColor || 'transparent'),
+    box: { // replace #F9A600 with letter when ok to animate
+      backgroundColor: blinkingBox ? letterColor : (scoreColor || 'transparent'),
       height: 55,
       width: 55,
       position: "relative",
@@ -135,10 +152,10 @@ const GameBlock = (props) => {
       borderRightWidth: borderRightWidth,
       borderBottomWidth: borderBottomWidth,
       borderLeftWidth: borderLeftWidth,
-      borderTopColor: (blinkingEdge === "top") ? "#F9A600" : topBorderColor,
-      borderRightColor: (blinkingEdge === "right") ? "#F9A600" : rightBorderColor,
-      borderBottomColor: (blinkingEdge === "bottom") ? "#F9A600" : bottomBorderColor,
-      borderLeftColor: (blinkingEdge === "left") ? "#F9A600" : leftBorderColor
+      borderTopColor: (blinkingEdge === "top") ? letterColor : topBorderColor,
+      borderRightColor: (blinkingEdge === "right") ? letterColor : rightBorderColor,
+      borderBottomColor: (blinkingEdge === "bottom") ? letterColor : bottomBorderColor,
+      borderLeftColor: (blinkingEdge === "left") ? letterColor : leftBorderColor
     },
     top: {
       height: "40%",

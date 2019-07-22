@@ -509,6 +509,7 @@ const PlayGame = (props) => {
   }
 
   const changeLevel = (level, levelText) => {
+    setScreenText("")
     if((levelText !== "x" || !levelText)){
       setBoard(util.breakRefAndCopy(gameBoards[level]));
       setPlayerTurn("first");

@@ -68,7 +68,7 @@ const ScreenText = (props) => {
       height: config.height,
       position: "absolute",
       height: 40,
-      top: 80,
+      top: 110,
       //top,
       left: 0,
       opacity: 1
@@ -79,7 +79,7 @@ const ScreenText = (props) => {
   return (<Animated.View style={gameOverStyle(top, opacity)} removeClippedSubviews={true}>
     <View style={styles.textSectionStlye}>
       <Text style={styles.text}>{t1}</Text>
-      <Text style={styles.text}>{t2}</Text>
+      <Text style={{...styles.text, ...{color: "#FF0000"}}}>{t2}</Text>
       <Text style={styles.text}>{t3}</Text>
     </View>
   </Animated.View>)
