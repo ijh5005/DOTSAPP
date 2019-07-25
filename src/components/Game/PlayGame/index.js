@@ -741,14 +741,15 @@ const styles = StyleSheet.create({
   },
   openLevel: {
     fontSize: 20,
-    color: "#b57800"
+    color: "#b57800",
+    fontFamily: "Raleway-ExtraBold"
   },
   lockedLevel: {
     fontSize: 20,
     color: "#fff",
     padding: 2,
     opacity: 0.6,
-    fontWeight: "bold"
+    fontFamily: "Raleway-ExtraBold"
   },
   bombSection: {
     height: 60,
@@ -769,10 +770,10 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     backgroundColor: "#270038",
-    borderRadius: 5,
+    borderRadius: 2,
     justifyContent: "center",
     alignItems: "center",
-    margin: 5
+    margin: 2
   },
   homeBox: {
     height: 50,
@@ -791,7 +792,8 @@ const styles = StyleSheet.create({
   goldText: {
     fontSize: 20,
     color: "#b57800",
-    letterSpacing: 5
+    letterSpacing: 5,
+    fontFamily: "Raleway-LightItalic"
   },
   gold: {
     height: 60,

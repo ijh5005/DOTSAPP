@@ -90,14 +90,17 @@ const styles = StyleSheet.create({
   },
   scoreTextStyle: {
     color: "#b142da",
-    fontSize: 18
+    fontSize: 18,
+    fontFamily: "Raleway-Italic"
   },
   yourScoreStyle: {
     color: "#b57800",
-    fontSize: 30
+    fontSize: 30,
+    fontFamily: "Raleway-ExtraBold"
   },
   computerScoreStyle: {
     color: "#980000",
-    fontSize: 30
+    fontSize: 30,
+    fontFamily: "Raleway-ExtraBold"
   }
 });
