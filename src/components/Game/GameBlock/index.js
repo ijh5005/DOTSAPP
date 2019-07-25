@@ -184,8 +184,8 @@ const GameBlock = (props) => {
     },
     topLeft: {
       position: "absolute",
-      top: -5,
-      left: -5,
+      top: -6,
+      left: -6,
       height: 10,
       width: 10,
       backgroundColor: "#270038",
@@ -193,8 +193,8 @@ const GameBlock = (props) => {
     },
     topRight: {
       position: "absolute",
-      top: -5,
-      right: -5,
+      top: -6,
+      right: -6,
       height: 10,
       width: 10,
       backgroundColor: "#270038",
@@ -202,8 +202,8 @@ const GameBlock = (props) => {
     },
     bottomLeft: {
       position: "absolute",
-      bottom: -5,
-      left: -5,
+      bottom: -6,
+      left: -6,
       height: 10,
       width: 10,
       backgroundColor: "#270038",
@@ -211,8 +211,8 @@ const GameBlock = (props) => {
     },
     bottomRight: {
       position: "absolute",
-      right: -5,
-      bottom: -5,
+      right: -6,
+      bottom: -6,
       height: 10,
       width: 10,
       backgroundColor: "#270038",

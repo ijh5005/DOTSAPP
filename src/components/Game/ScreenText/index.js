@@ -58,7 +58,7 @@ const ScreenText = (props) => {
     text: {
       color: "#b57800",
       fontSize: font || 40,
-      fontFamily: "Raleway-SemiBoldItalic"
+      fontFamily: "Raleway-Italic"
     }
   };
 
