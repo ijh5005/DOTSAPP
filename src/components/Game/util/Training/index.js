@@ -18,15 +18,20 @@ export const trainRestrictions = {
     }, {
       type: "clickSide",
       boxes: [21, 22],
-      sides: ["right", "left"]
+      sides: ["right", "left"],
+      text: "take turns clicking lines"
     }, {
       type: "clickSide",
       boxes: [8, 14],
-      sides: ["bottom", "top"]
+      sides: ["bottom", "top"],
+      text: "box = four connected lines"
     }, {
       type: "clickSide",
       boxes: [25, 26],
-      sides: ["right", "left"]
+      sides: ["right", "left"],
+      text: "go job"
+    }, {
+      text: ""
     }]
   },
   level2: {

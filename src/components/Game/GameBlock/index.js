@@ -143,8 +143,8 @@ const GameBlock = (props) => {
   const styles = {
     box: { // replace #F9A600 with letter when ok to animate
       backgroundColor: blinkingBox ? letterColor : (scoreColor || 'transparent'),
-      height: 55,
-      width: 55,
+      height: 53,
+      width: 53,
       position: "relative",
       opacity: isDisabledBox ? 0 : 1,
       zIndex: isDisabledBox ? 1 : 5,

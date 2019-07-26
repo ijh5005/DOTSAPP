@@ -77,9 +77,7 @@ const PlayGame = (props) => {
   const [training, setTraining] = useState("");
 
   const checkComputerMove = () => {
-    debugger
     const move = computerMove(borders, connectedBoxes, board, footIndexes);
-    debugger
   }
 
   const showScreenText = (text) => {
@@ -579,65 +577,67 @@ const PlayGame = (props) => {
 
     <View style={styles.space}></View>
 
-    {keys.map((data, index) => {
-      const {
-        disabled,
-        borders
-      } = board[data];
-      const {
-        isTopRightCornerBox,
-        isTopLeftCornerBox,
-        isBottomRightCornerBox,
-        isBottomLeftCornerBox,
-        isTopSideRow,
-        isRightSideRow,
-        isBottomSideRow,
-        isLeftSideRow
-      } = boxInfo.getSidesInfo(board, index);
-      const box = boxInfo.getBoxNameByIndex(index)
-      const isDisabledBox = disabled || false;
-      const hasScored = borders.top && borders.right && borders.bottom && borders.left;
-      const borderColors = boxInfo.getBorderColors(box, whoClickedTheLineTracker);
+    <View style={{width: 318, height: 380, flexDirection: "row", flexWrap: "wrap", paddingTop: 40}}>
+      {keys.map((data, index) => {
+        const {
+          disabled,
+          borders
+        } = board[data];
+        const {
+          isTopRightCornerBox,
+          isTopLeftCornerBox,
+          isBottomRightCornerBox,
+          isBottomLeftCornerBox,
+          isTopSideRow,
+          isRightSideRow,
+          isBottomSideRow,
+          isLeftSideRow
+        } = boxInfo.getSidesInfo(board, index);
+        const box = boxInfo.getBoxNameByIndex(index)
+        const isDisabledBox = disabled || false;
+        const hasScored = borders.top && borders.right && borders.bottom && borders.left;
+        const borderColors = boxInfo.getBorderColors(box, whoClickedTheLineTracker);
 
-      const restriction = training && training.yourMoves && training.yourMoves[0];
+        const restriction = training && training.yourMoves && training.yourMoves[0];
 
-      let blinkingEdge = false;
-      let blinkingBox = false;
+        let blinkingEdge = false;
+        let blinkingBox = false;
 
-      if (restriction && restriction.type === "clickSide" && playerTurn === "first"){
-        const restrictionIndex = restriction.boxes.indexOf(index);
-        blinkingEdge = (restrictionIndex !== -1) && restriction.sides[restrictionIndex];
-      }
+        if (restriction && restriction.type === "clickSide" && playerTurn === "first"){
+          const restrictionIndex = restriction.boxes.indexOf(index);
+          blinkingEdge = (restrictionIndex !== -1) && restriction.sides[restrictionIndex];
+        }
 
-      if(restriction && (restriction.type === "boxClick") && (playerTurn === "first") && (index === restriction.clickBox)){
-        blinkingBox = true;
-      }
+        if(restriction && (restriction.type === "boxClick") && (playerTurn === "first") && (index === restriction.clickBox)){
+          blinkingBox = true;
+        }
 
-      return (<GameBlock
-        isDisabledBox={isDisabledBox}
-        borders={borders}
-        clickBorder={clickBorder}
-        index={index}
-        hasScored={hasScored}
-        scored={whoScored[box]}
-        borderColors={borderColors}
-        computerLastLineClick={computerLastLineClick}
-        boxName={box}
-        isTopRightCornerBox={isTopRightCornerBox}
-        isTopLeftCornerBox={isTopLeftCornerBox}
-        isBottomRightCornerBox={isBottomRightCornerBox}
-        isBottomLeftCornerBox={isBottomLeftCornerBox}
-        isTopSideRow={isTopSideRow}
-        isRightSideRow={isRightSideRow}
-        isBottomSideRow={isBottomSideRow}
-        isLeftSideRow={isLeftSideRow}
-        explodingBoxes={explodingBoxes}
-        setExplosionBoxes={setExplosionBoxes}
-        footIndexes={footIndexes}
-        blinkingEdge={blinkingEdge}
-        blinkingBox={blinkingBox}
-        navigation={props.navigation}
-        key={index} />)})}
+        return (<GameBlock
+          isDisabledBox={isDisabledBox}
+          borders={borders}
+          clickBorder={clickBorder}
+          index={index}
+          hasScored={hasScored}
+          scored={whoScored[box]}
+          borderColors={borderColors}
+          computerLastLineClick={computerLastLineClick}
+          boxName={box}
+          isTopRightCornerBox={isTopRightCornerBox}
+          isTopLeftCornerBox={isTopLeftCornerBox}
+          isBottomRightCornerBox={isBottomRightCornerBox}
+          isBottomLeftCornerBox={isBottomLeftCornerBox}
+          isTopSideRow={isTopSideRow}
+          isRightSideRow={isRightSideRow}
+          isBottomSideRow={isBottomSideRow}
+          isLeftSideRow={isLeftSideRow}
+          explodingBoxes={explodingBoxes}
+          setExplosionBoxes={setExplosionBoxes}
+          footIndexes={footIndexes}
+          blinkingEdge={blinkingEdge}
+          blinkingBox={blinkingBox}
+          navigation={props.navigation}
+          key={index} />)})}
+    </View>
 
     <View style={styles.bombSection} >
       {currentLevelBombs.map((data, index) => {

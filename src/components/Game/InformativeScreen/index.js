@@ -12,18 +12,20 @@ import { config } from "../util/Settings";
 
 const information = {
   foot: {
-    text: '"The oppressed are allowed once every few years to decide which particular representatives of the oppressing class are to represent and repress them."',
+    text: "The oppressed are allowed once every few years to decide which particular representatives of the oppressing class are to represent and repress them.",
     author: "Karl Marx",
     image: images.foot,
     height: 260,
-    width: 203
+    width: 203,
+    title: "Foot of Oppression"
   },
   makeda: {
     text: "Makeda is the mysterious and majestic Queen of Sheba, and the beloved of King Solomon of Judea.",
-    author: "",
+    author: "Ethiopia",
     image: images.makedaImg,
     height: 250,
-    width: 350
+    width: 350,
+    title: "Makeda"
   }
 }
 
@@ -43,6 +45,9 @@ const InformativeScreen = (props) => {
 
       <View style={styles.imgContainer}>
         <Image style={imgStlye(information)} source={information[facts].image} />
+        <Text style={styles.title}>
+          {information[facts].title}
+        </Text>
       </View>
 
       <View style={styles.textContainer}>
@@ -84,18 +89,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     left: "5%"
   },
-  text: {color:
-    "#b57800",
-    fontFamily: "Raleway-LightItalic",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  author: {
+  text: {
     color: "#fff",
     fontFamily: "Raleway-ExtraLight",
+    fontSize: 26,
+    textAlign: "center",
+    width: config.width*0.9,
+    opacity: 0.8
+  },
+  author: {
+    color: "#b57800",
+    fontFamily: "Raleway-ExtraBold",
     fontSize: 35,
     textAlign: "center",
-    opacity: 0.8,
     letterSpacing: 6
+  },
+  title: {
+    color: "#fff",
+    fontFamily: "Raleway-ExtraBold",
+    fontSize: 35,
+    textAlign: "center",
+    opacity: 0.4
   }
 });
