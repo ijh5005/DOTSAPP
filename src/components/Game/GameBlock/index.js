@@ -110,7 +110,7 @@ const GameBlock = (props) => {
 
   const computerCurrentMove = computerLastLineClick && computerLastLineClick.boxes.includes(boxName);
   if(computerCurrentMove){
-    const lastClickColor = "#FF0000";
+    const lastClickColor = "#FF6D6D";
     const indexOfBox = computerLastLineClick.boxes.indexOf(boxName);
     if(computerLastLineClick.sides[indexOfBox] === "top"){
       topBorderColor = lastClickColor;
@@ -133,12 +133,12 @@ const GameBlock = (props) => {
   let borderRightWidth = (isTopRightCornerBox || isBottomRightCornerBox || isRightSideRow) ? 2 : 1;
   let borderBottomWidth = (isBottomRightCornerBox || isBottomLeftCornerBox || isBottomSideRow) ? 2 : 1;
   let borderLeftWidth = (isTopLeftCornerBox || isBottomLeftCornerBox || isLeftSideRow) ? 2 : 1;
-  if(computerCurrentMove){
-    borderTopWidth++
-    borderRightWidth++
-    borderBottomWidth++
-    borderLeftWidth++
-  }
+  // if(computerCurrentMove){
+  //   borderTopWidth++
+  //   borderRightWidth++
+  //   borderBottomWidth++
+  //   borderLeftWidth++
+  // }
 
   const styles = {
     box: { // replace #F9A600 with letter when ok to animate

@@ -76,6 +76,7 @@ const PlayGame = (props) => {
   const [helpText, setHelpText] = useState("");
   const [training, setTraining] = useState("");
   const [bombToClick, setBombToClick] = useState(null);
+  const [waitTime, setWaitTime] = useState(0);
 
   const checkComputerMove = () => {
     const move = computerMove(borders, connectedBoxes, board, footIndexes);
@@ -89,29 +90,36 @@ const PlayGame = (props) => {
   }
 
   useEffect(() => {
-    const restriction = training && training.yourMoves && training.yourMoves[0];
-    if(restriction && restriction.type === "explosionClick"){
-      setBombToClick(restriction.bomb);
-    } else {
-      setBombToClick(null)
-    }
+    setTimeout(() => {
+      if(waitTime) setWaitTime(0);
+      const restriction = training && training.yourMoves && training.yourMoves[0];
+      if(restriction && restriction.type === "explosionClick"){
+        setBombToClick(restriction.bomb);
+      } else {
+        setBombToClick(null)
+      }
+    }, waitTime);
   }, [training])
 
   useEffect(() => {
-    const restriction = training && training.yourMoves && training.yourMoves[0];
-    if (restriction && playerTurn === "first"){
-      if(restriction.text || restriction.text === ""){
-        setHelpText({
-          text: restriction.text,
-          text2: restriction.text2,
-          text3: restriction.text3
-        });
+    setTimeout(() => {
+      if(waitTime) setWaitTime(0);
+      const restriction = training && training.yourMoves && training.yourMoves[0];
+      if (restriction && playerTurn === "first"){
+        if(restriction.text || restriction.text === ""){
+          setHelpText({
+            text: restriction.text,
+            text2: restriction.text2,
+            text3: restriction.text3
+          });
+        }
       }
-    }
+    }, waitTime)
   }, [training, playerTurn])
 
   useEffect(() => {
     setTimeout(() => {
+      if(waitTime) setWaitTime(0);
       // only use logic if it is the computer turn. ex: "second" player
       if(playerTurn === "second"){
         setConsecutiveTurns(0)
@@ -156,11 +164,12 @@ const PlayGame = (props) => {
           return setGameIsOver(true);
         }
       }
-    }, 400)
+    }, 400 + waitTime)
   }, [playerTurn, whoScored]); // this is only used if borders or connectedBoxes change
 
   useEffect(() => {
     setTimeout(() => {
+      if(waitTime) setWaitTime(0);
       let yourScoreCount = 0;
       let computerScoreCount = 0;
       for(let i in whoScored){
@@ -175,55 +184,18 @@ const PlayGame = (props) => {
       if(yourScoreCount + computerScoreCount === 36){
         setGameOver(true)
       }
-    }, 800)
-  }, [whoScored, explodingBoxes])
+    }, waitTime)
+  }, [whoScored, explodingBoxes, connectedBoxes])
 
   useEffect(() => {
-    // if(gameIsOver && youWin){
-    //
-    //   const checkLevelDefaults = async () => {
-    //
-    //     try {
-    //       const allStorage = await AsyncStorage.getAllKeys();
-    //       if(allStorage.includes("completedLevels")){
-    //         const completedLevels = JSON.parse(await AsyncStorage.getItem("completedLevels"));
-    //         if(!completedLevels.includes(currentLevel)){
-    //           completedLevels.push(currentLevel);
-    //           await AsyncStorage.removeItem("completedLevels");
-    //           await AsyncStorage.setItem("completedLevels", JSON.stringify(completedLevels));
-    //         }
-    //       } else {
-    //         await AsyncStorage.setItem("completedLevels", JSON.stringify([currentLevel]));
-    //       }
-    //       const finalStorage = await AsyncStorage.getItem("completedLevels")
-    //       console.log(finalStorage)
-    //     } catch (e) {
-    //       console.log("local storage error")
-    //     }
-    //
-    //   }
-    //
-    //   checkLevelDefaults();
-    //
-    // }
-  }, [gameIsOver, youWin])
-
-  useEffect(() => {
-    const setDefaultBombs = async () => {
-    //   const allStorage = await AsyncStorage.getAllKeys();
-    //   if(allStorage.includes("completedLevels")){
-    //     const completedLevels = JSON.parse(await AsyncStorage.getItem("completedLevels"));
-    //     if(completedLevels.includes(currentLevel)){
-    //       setCurrentLevelBombs([])
-    //     } else {
-    //       setCurrentLevelBombs(config.levelDefaultBombs[currentLevel])
-    //     }
-    //   } else {
+    if(waitTime) setWaitTime(0);
+    setTimeout(() => {
+      const setDefaultBombs = async () => {
         setCurrentLevelBombs(config.levelDefaultBombs[currentLevel])
-    //   }
-    }
-    setDefaultBombs();
-    setTraining(util.breakRefAndCopy(trainRestrictions[currentLevel]));
+      }
+      setDefaultBombs();
+      setTraining(util.breakRefAndCopy(trainRestrictions[currentLevel]));
+    }, waitTime)
   }, [currentLevel])
 
   const removeUsedMoveRestriction = () => {
@@ -432,7 +404,9 @@ const PlayGame = (props) => {
   const keys = Object.keys(board);
 
   const setExplosionBoxes = (boxIndex) => {
-    if(!activeBomb.length) return;
+    if(!activeBomb.length || (playerTurn !== "first")) return;
+
+    setWaitTime(500);
 
     if(!passedMoveRestrictions(boxIndex, null, activeBomb)){
       sounds.wrong.setCurrentTime(0);
@@ -716,7 +690,7 @@ const PlayGame = (props) => {
         isLastBoard={currentLevel === config.finalLevel}
       />}
 
-    {screenText.length !== 0 && <ScreenText text={screenText} />}
+    {/*screenText.length !== 0 && <ScreenText text={screenText} />*/}
     {helpText.length !== 0 && <ScreenText text={helpText} font={30} />}
 
     {showInformativeScreen && <InformativeScreen

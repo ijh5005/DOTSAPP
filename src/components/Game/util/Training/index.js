@@ -29,7 +29,9 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [25, 26],
       sides: ["right", "left"],
-      text: "go job"
+      text: "go job! take another turn"
+    }, {
+      text: "your turn!"
     }, {
       text: ""
     }]
@@ -46,6 +48,7 @@ export const trainRestrictions = {
     }, {
       type: "explosionClick",
       bomb: "panther",
+      text: ""
     }, {
       type: "boxClick",
       clickBox: 15
