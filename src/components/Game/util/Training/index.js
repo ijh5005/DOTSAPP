@@ -25,12 +25,12 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [8, 14],
       sides: ["bottom", "top"],
-      text: "it's that simple!"
+      text: "your turn"
     }, {
       type: "clickSide",
       boxes: [25, 26],
       sides: ["right", "left"],
-      text: "go job!",
+      text: "it's that simple!",
       text2: "take another turn"
     }, {
       text: "your turn!"
@@ -48,7 +48,7 @@ export const trainRestrictions = {
       type: "boxClick",
       clickBox: 20,
       text: "click the box",
-      text2: "explodes right to left"
+      text2: "it explodes right and left"
     }, {
       type: "explosionClick",
       bomb: "panther",
@@ -56,7 +56,7 @@ export const trainRestrictions = {
     }, {
       type: "boxClick",
       clickBox: 15,
-      text: "explodes up and down"
+      text: "it explodes up and down"
     }, {
       text: "remove the",
       text2: "Foot of Oppression",

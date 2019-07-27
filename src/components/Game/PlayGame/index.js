@@ -91,7 +91,6 @@ const PlayGame = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if(waitTime) setWaitTime(0);
       const restriction = training && training.yourMoves && training.yourMoves[0];
       if(restriction && restriction.type === "explosionClick"){
         setBombToClick(restriction.bomb);
@@ -103,7 +102,6 @@ const PlayGame = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if(waitTime) setWaitTime(0);
       const restriction = training && training.yourMoves && training.yourMoves[0];
       if (restriction && playerTurn === "first"){
         if(restriction.text || restriction.text === ""){
@@ -119,7 +117,6 @@ const PlayGame = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if(waitTime) setWaitTime(0);
       // only use logic if it is the computer turn. ex: "second" player
       if(playerTurn === "second"){
         setConsecutiveTurns(0)
@@ -169,7 +166,6 @@ const PlayGame = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if(waitTime) setWaitTime(0);
       let yourScoreCount = 0;
       let computerScoreCount = 0;
       for(let i in whoScored){
@@ -188,7 +184,6 @@ const PlayGame = (props) => {
   }, [whoScored, explodingBoxes, connectedBoxes])
 
   useEffect(() => {
-    if(waitTime) setWaitTime(0);
     setTimeout(() => {
       const setDefaultBombs = async () => {
         setCurrentLevelBombs(config.levelDefaultBombs[currentLevel])
@@ -197,6 +192,14 @@ const PlayGame = (props) => {
       setTraining(util.breakRefAndCopy(trainRestrictions[currentLevel]));
     }, waitTime)
   }, [currentLevel])
+
+  useEffect(() => {
+    if(waitTime){
+      setTimeout(() => {
+        setWaitTime(0)
+      }, 800)
+    }
+  }, [waitTime])
 
   const removeUsedMoveRestriction = () => {
     const yourMoves = util.breakRefAndCopy(training.yourMoves);

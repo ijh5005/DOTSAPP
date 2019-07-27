@@ -37,7 +37,9 @@ const HomeScreen = (props) => {
   navigation.addListener('willFocus', () => {
     sounds.introMusic.getCurrentTime((seconds) => {
       if(seconds === 0){
-        playGameMusic();
+        setTimeout(() => {
+          playGameMusic();
+        }, 500)
       }
     });
   })
