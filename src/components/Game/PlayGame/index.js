@@ -254,6 +254,8 @@ const PlayGame = (props) => {
         } else {
           passedRestrictions = false;
         }
+      } else if (Object.keys(restriction).length === 1 && restriction.text) {
+        removeUsedMoveRestriction();
       }
 
     }
