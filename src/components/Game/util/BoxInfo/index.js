@@ -582,7 +582,7 @@ export const boxInfo = {
       explosionMapper[boxRow].forEach(rowBoxIndex => {
         temp[rowBoxIndex] = { waitTime: increment };
       })
-      increment += 25;
+      increment += 50;
     }
     return temp;
   },

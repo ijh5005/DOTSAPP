@@ -14,22 +14,24 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [14, 15],
       sides: ["right", "left"],
-      text: "create a box to score"
+      text: "take turns clicking",
+      text2: "between dots"
     }, {
       type: "clickSide",
       boxes: [21, 22],
       sides: ["right", "left"],
-      text: "take turns clicking lines"
+      text: "create a box to score"
     }, {
       type: "clickSide",
       boxes: [8, 14],
       sides: ["bottom", "top"],
-      text: "box = four connected lines"
+      text: "it's that simple!"
     }, {
       type: "clickSide",
       boxes: [25, 26],
       sides: ["right", "left"],
-      text: "go job! take another turn"
+      text: "go job!",
+      text2: "take another turn"
     }, {
       text: "your turn!"
     }, {
@@ -45,13 +47,22 @@ export const trainRestrictions = {
     }, {
       type: "boxClick",
       clickBox: 20,
+      text: "click the box",
+      text2: "explodes right to left"
     }, {
       type: "explosionClick",
       bomb: "panther",
-      text: ""
+      text: "click a panther"
     }, {
       type: "boxClick",
-      clickBox: 15
+      clickBox: 15,
+      text: "explodes up and down"
+    }, {
+      text: "remove the",
+      text2: "Foot of Oppression",
+      text3: "or lose!"
+    }, {
+      text: ""
     }]
   },
   level3: {yourMoves: [{text: ""}]},
