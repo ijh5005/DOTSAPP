@@ -75,6 +75,7 @@ const PlayGame = (props) => {
   const [screenText, setScreenText] = useState("");
   const [helpText, setHelpText] = useState("");
   const [training, setTraining] = useState("");
+  const [bombToClick, setBombToClick] = useState(null);
 
   const checkComputerMove = () => {
     const move = computerMove(borders, connectedBoxes, board, footIndexes);
@@ -86,6 +87,15 @@ const PlayGame = (props) => {
       setScreenText("")
     }, 1000)
   }
+
+  useEffect(() => {
+    const restriction = training && training.yourMoves && training.yourMoves[0];
+    if(restriction && restriction.type === "explosionClick"){
+      setBombToClick(restriction.bomb);
+    } else {
+      setBombToClick(null)
+    }
+  }, [training])
 
   useEffect(() => {
     const restriction = training && training.yourMoves && training.yourMoves[0];
@@ -654,16 +664,13 @@ const PlayGame = (props) => {
           style = explosionStlyes.makedaBombStyle();
         }
 
-        const restriction = training && training.yourMoves && training.yourMoves[0];
-        const blinkingBomb = (restriction && restriction.type === "explosionClick" && restriction.bomb === data);
-
         return (<TouchableOpacity key={index} onPress={() => selectBomb(data, index)}>
-          <Animated.View style={((activeBomb === data + index) || blinkingBomb) ? explosionStlyes.selectedBomb(letterColor) : {}} removeClippedSubviews={true}>
+          <Animated.View style={((activeBomb === data + index) || (bombToClick === data)) ? explosionStlyes.selectedBomb(letterColor) : {}} removeClippedSubviews={true}>
             <Image
               style={style}
               source={image}
             />
-            {blinkingBomb && <Pointer
+            {(bombToClick === data) && <Pointer
                               startingLeft={50}
                               startingBottom={50}
                               duration={500}
