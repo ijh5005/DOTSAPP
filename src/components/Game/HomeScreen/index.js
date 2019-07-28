@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -34,7 +34,10 @@ const HomeScreen = (props) => {
     startGame, motivationPage, storePage, navigation
   } = props;
 
+  let stopAnimation = false;
+
   navigation.addListener('willFocus', () => {
+    stopAnimation = false;
     sounds.introMusic.getCurrentTime((seconds) => {
       if(seconds === 0){
         setTimeout(() => {
@@ -42,6 +45,10 @@ const HomeScreen = (props) => {
         }, 500)
       }
     });
+  })
+
+  navigation.addListener('willBlur', () => {
+    stopAnimation = true;
   })
 
   const startTheGame = () => {
@@ -54,22 +61,22 @@ const HomeScreen = (props) => {
   const endingColor = 1;
   let colorAnimation = new Animated.Value(startingColor);
 
-  const animateScoreBoard = (obj) => {
-    // console.log("home")
-    // debugger
-    // console.log(props)
-    if(obj && obj.finished){
-      return animateScoreBoard();
-    }
-    Animated.timing(
-      colorAnimation,
-      { toValue: endingColor, duration: 4000 }
-    ).start(() => {
-      Animated.timing(
-        colorAnimation,
-        { toValue: startingColor, duration: 4000 }
-      ).start(animateScoreBoard);
+  const animateScoreBoard = () => {
+    Animated.sequence([
+      Animated.timing(colorAnimation, {
+        toValue: endingColor,
+        duration: 4000
+      }),
+      Animated.timing(colorAnimation, {
+        toValue: startingColor,
+        duration: 4000
+      })
+    ]).start(({finished}) => {
+      if(!stopAnimation){
+        animateScoreBoard()
+      }
     });
+
   }
   animateScoreBoard();
 

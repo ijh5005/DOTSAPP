@@ -562,6 +562,7 @@ const PlayGame = (props) => {
       yourScore={yourScore}
       computerScore={computerScore}
       playerTurn={playerTurn}
+      navigation={props.navigation}
     />
 
     <View style={styles.space}></View>

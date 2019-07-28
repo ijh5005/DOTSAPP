@@ -10,24 +10,40 @@ import { config } from "../util/Settings";
 
 const GameScoreBoard = (props) => {
 
-  const { yourScore, computerScore, playerTurn } = props;
+  const { yourScore, computerScore, playerTurn, navigation } = props;
 
   const startingOpacity = 0.5;
   const endingOpacity = 0.2;
   let turnOpacityAnimation = new Animated.Value(startingOpacity);
 
   const animateScoreBoard = () => {
-    Animated.timing(
-      turnOpacityAnimation,
-      { toValue: endingOpacity, duration: 1000 }
-    ).start(() => {
-      Animated.timing(
-        turnOpacityAnimation,
-        { toValue: startingOpacity, duration: 1000 }
-      ).start(animateScoreBoard);
+    Animated.sequence([
+      Animated.timing(turnOpacityAnimation, {
+        toValue: endingOpacity,
+        duration: 1000
+      }),
+      Animated.timing(turnOpacityAnimation, {
+        toValue: startingOpacity,
+        duration: 1000
+      })
+    ]).start(({finished}) => {
+      if(!stopAnimation){
+        animateScoreBoard()
+      }
     });
+
   }
   animateScoreBoard();
+
+  let stopAnimation = false;
+
+  navigation.addListener('willFocus', () => {
+    stopAnimation = false;
+  })
+
+  navigation.addListener('willBlur', () => {
+    stopAnimation = true;
+  })
 
   const opacityStyles =  {
     yourScoreBoard: (playerTurn, turnOpacityAnimation) => {

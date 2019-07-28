@@ -16,6 +16,8 @@ const Pointer = (props) => {
   let left = new Animated.Value(startingLeft);
   let bottom = new Animated.Value(startingBottom);
 
+  let count = 0;
+
   const moveImage = (value, starting, stopping) => {
     Animated.timing(
       value,
@@ -25,7 +27,10 @@ const Pointer = (props) => {
         value,
         { toValue: stopping, duration }
       ).start(() => {
-        moveImage(value, starting, stopping);
+        count++;
+        if(count < 40){
+          moveImage(value, starting, stopping);
+        }
       });
     });
   }
