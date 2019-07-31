@@ -27,7 +27,7 @@ const GameScoreBoard = (props) => {
         duration: 1000
       })
     ]).start(({finished}) => {
-      if(!stopAnimation){
+      if(finished){
         animateScoreBoard()
       }
     });

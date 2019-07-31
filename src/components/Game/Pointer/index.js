@@ -8,6 +8,7 @@ import {
 const pointer = require("../../../imgs/pointer.png");
 
 const Pointer = (props) => {
+  console.log("hey")
 
   const {startingLeft, startingBottom, duration, distance} = props;
 
@@ -26,10 +27,12 @@ const Pointer = (props) => {
       Animated.timing(
         value,
         { toValue: stopping, duration }
-      ).start(() => {
-        count++;
-        if(count < 40){
-          moveImage(value, starting, stopping);
+      ).start(({finished}) => {
+        if(finished){
+          count++;
+          if(count < 20){
+            moveImage(value, starting, stopping);
+          }
         }
       });
     });

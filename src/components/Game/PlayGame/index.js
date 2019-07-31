@@ -77,6 +77,7 @@ const PlayGame = (props) => {
   const [training, setTraining] = useState("");
   const [bombToClick, setBombToClick] = useState(null);
   const [waitTime, setWaitTime] = useState(0);
+  const [turnText, setTurnText] = useState("your turn");
 
   const checkComputerMove = () => {
     const move = computerMove(borders, connectedBoxes, board, footIndexes);
@@ -88,6 +89,14 @@ const PlayGame = (props) => {
       setScreenText("")
     }, 1000)
   }
+
+  useEffect(() => {
+    if(playerTurn === "first"){
+      setTurnText("your turn")
+    } else {
+      setTurnText("computer turn")
+    }
+  }, [playerTurn])
 
   useEffect(() => {
     setTimeout(() => {
@@ -509,7 +518,9 @@ const PlayGame = (props) => {
       setYouWin(false);
       setBoardTotalScore(util.getBoardScore(gameBoards[level]));
       setCurrentLevel(level);
+      console.log(levelText)
       if(config.informationBoard.includes(levelText)){
+        console.log("open")
         setShowInformativeScreen(true);
         const type = config.informationText[`${levelText}`];
         setInformationType(type)
@@ -525,7 +536,7 @@ const PlayGame = (props) => {
   const nextLevel = () => {
     const level = parseInt(currentLevel.replace("level", ""))
     const nextLevel = level + 1;
-    changeLevel(`level${nextLevel}`);
+    changeLevel(`level${nextLevel}`, nextLevel);
     setGameIsOver(false);
   }
 
@@ -545,7 +556,11 @@ const PlayGame = (props) => {
       Animated.timing(
         colorAnimation,
         { toValue: startingColor, duration: 1000 }
-      ).start(animateScoreBoard);
+      ).start(({finished}) => {
+        if(finished){
+          animateScoreBoard();
+        }
+      });
     });
   }
   animateScoreBoard();
@@ -664,7 +679,10 @@ const PlayGame = (props) => {
       style={styles.goldSection}
       onPress={config.isDebuggingMode ? () => { checkComputerMove() } : null}>
       {/*<Text style={styles.goldText}>1000</Text>*/}
-      <Text style={styles.goldText}>levels</Text>
+      <Text style={{
+        ...styles.goldText,
+        ...{color: (playerTurn === "first") ? "#b57800" : "#FF0000"}
+      }}>{turnText}</Text>
       {/*<View style={styles.gold}>
         <Image style={styles.goldImg} source={images.goldBlock} resizeMode="contain" />
       </View>*/}
@@ -778,9 +796,8 @@ const styles = StyleSheet.create({
   },
   goldText: {
     fontSize: 20,
-    color: "#b57800",
     letterSpacing: 5,
-    fontFamily: "Raleway-LightItalic"
+    fontFamily: "Raleway-Bold"
   },
   gold: {
     height: 60,

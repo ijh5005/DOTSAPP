@@ -47,9 +47,9 @@ const HomeScreen = (props) => {
     });
   })
 
-  navigation.addListener('willBlur', () => {
-    stopAnimation = true;
-  })
+  // navigation.addListener('willBlur', () => {
+  //   stopAnimation = true;
+  // })
 
   const startTheGame = () => {
     sounds.introMusic.setCurrentTime(0);
@@ -72,7 +72,7 @@ const HomeScreen = (props) => {
         duration: 4000
       })
     ]).start(({finished}) => {
-      if(!stopAnimation){
+      if(finished){
         animateScoreBoard()
       }
     });

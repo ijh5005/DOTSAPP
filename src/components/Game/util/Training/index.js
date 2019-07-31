@@ -14,13 +14,15 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [14, 15],
       sides: ["right", "left"],
-      text: "take turns clicking",
-      text2: "between dots"
+      text: "tap between",
+      text2: "two dots"
     }, {
       type: "clickSide",
       boxes: [21, 22],
       sides: ["right", "left"],
-      text: "create a box to score"
+      text: "draw more boxes than",
+      text2: "your opponent",
+      text3: "to win"
     }, {
       type: "clickSide",
       boxes: [8, 14],
@@ -30,8 +32,8 @@ export const trainRestrictions = {
       type: "clickSide",
       boxes: [25, 26],
       sides: ["right", "left"],
-      text: "it's that simple!",
-      text2: "take another turn"
+      text: "your turn again",
+      text2: "because you scored"
     }, {
       text: "your turn!"
     }, {
