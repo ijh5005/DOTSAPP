@@ -38,7 +38,6 @@ const StoreScreen = (props) => {
       color,
       fontSize: config.width * 0.14,
       opacity: 1,
-      fontWeight: "bold",
       fontFamily: "Raleway-Black",
       textAlign: "center"
     }

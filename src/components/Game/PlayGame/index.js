@@ -681,7 +681,7 @@ const PlayGame = (props) => {
       {/*<Text style={styles.goldText}>1000</Text>*/}
       <Text style={{
         ...styles.goldText,
-        ...{color: (playerTurn === "first") ? "#b57800" : "#FF0000"}
+        color: "rgba(255, 255, 255, 0.2)"
       }}>{turnText}</Text>
       {/*<View style={styles.gold}>
         <Image style={styles.goldImg} source={images.goldBlock} resizeMode="contain" />
@@ -715,7 +715,7 @@ const PlayGame = (props) => {
       />}
 
     {/*screenText.length !== 0 && <ScreenText text={screenText} />*/}
-    {helpText.length !== 0 && <ScreenText text={helpText} font={30} />}
+    {helpText.length !== 0 && <ScreenText text={helpText} font={26} />}
 
     {showInformativeScreen && <InformativeScreen
         facts={informationType}
@@ -757,7 +757,7 @@ const styles = StyleSheet.create({
     fontFamily: "Raleway-ExtraBold"
   },
   bombSection: {
-    height: 60,
+    height: 40,
     width: config.width,
     flexDirection: "row",
     justifyContent: "center",
@@ -765,15 +765,15 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   levelSelectSection: {
-    width: config.width * .8,
+    width: config.width,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   levelBox: {
-    height: 50,
-    width: 50,
+    height: 40,
+    width: 40,
     backgroundColor: "#270038",
     borderRadius: 2,
     justifyContent: "center",

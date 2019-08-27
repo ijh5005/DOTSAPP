@@ -17,7 +17,6 @@ const nameBoxStlye = (color = "#fff", fontSize = 20, opacity = 1) => {
     color,
     fontSize,
     opacity,
-    fontWeight: "bold",
     fontFamily: "Raleway-Black"
   }
 }
@@ -140,7 +139,6 @@ const styles = StyleSheet.create({
     color: "#b57800",
     fontSize: 50,
     opacity: 1,
-    fontWeight: "bold",
     fontFamily: "Raleway-Black",
     letterSpacing: 6,
     lineHeight: 80

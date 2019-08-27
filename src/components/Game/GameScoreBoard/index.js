@@ -94,7 +94,7 @@ export default GameScoreBoard;
 const styles = StyleSheet.create({
   scoreBoardStyle: {
     width: config.width,
-    height: 100,
+    height: 70,
     flexDirection: "row"
   },
   scoreBoxStyle: {
