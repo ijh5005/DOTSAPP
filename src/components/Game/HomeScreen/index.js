@@ -33,10 +33,9 @@ const HomeScreen = (props) => {
     startGame, motivationPage, storePage, navigation
   } = props;
 
-  let stopAnimation = false;
 
   navigation.addListener('willFocus', () => {
-    stopAnimation = false;
+    startAnimation();
     sounds.introMusic.getCurrentTime((seconds) => {
       if(seconds === 0){
         setTimeout(() => {
@@ -44,11 +43,11 @@ const HomeScreen = (props) => {
         }, 500)
       }
     });
-  })
+  });
 
-  // navigation.addListener('willBlur', () => {
-  //   stopAnimation = true;
-  // })
+  navigation.addListener('willBlur', () => {
+    colorAnimation.stopAnimation();
+  })
 
   const startTheGame = () => {
     sounds.introMusic.setCurrentTime(0);
@@ -56,28 +55,27 @@ const HomeScreen = (props) => {
     startGame();
   }
 
-  const startingColor = 0;
-  const endingColor = 1;
-  let colorAnimation = new Animated.Value(startingColor);
+  let colorAnimation = new Animated.Value(0);
 
-  const animateScoreBoard = () => {
-    Animated.sequence([
-      Animated.timing(colorAnimation, {
-        toValue: endingColor,
-        duration: 4000
-      }),
-      Animated.timing(colorAnimation, {
-        toValue: startingColor,
-        duration: 4000
-      })
-    ]).start(({finished}) => {
-      if(finished){
-        animateScoreBoard()
+  const startAnimation = () => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(colorAnimation, {
+          toValue: 1,
+          duration: 4000
+        }),
+        Animated.timing(colorAnimation, {
+          toValue: 0,
+          duration: 4000
+        })
+      ]),
+      {
+        iterations: 10
       }
-    });
-
+    ).start();
   }
-  animateScoreBoard();
+
+  startAnimation();
 
   const letterColor = colorAnimation.interpolate({
     inputRange: [ 0, 1 ],

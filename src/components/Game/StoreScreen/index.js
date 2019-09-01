@@ -11,27 +11,37 @@ import { config } from "../util/Settings";
 import { images } from "../util/Images";
 
 const StoreScreen = (props) => {
-  const startingColor = 0;
-  const endingColor = 1;
-  let colorAnimation = new Animated.Value(startingColor);
 
-  const animateScoreBoard = () => {
-    Animated.timing(
-      colorAnimation,
-      { toValue: endingColor, duration: 4000 }
-    ).start(() => {
-      Animated.timing(
-        colorAnimation,
-        { toValue: startingColor, duration: 4000 }
-      ).start(animateScoreBoard);
-    });
+  let colorAnimation = new Animated.Value(0);
+
+  const startAnimation = () => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(colorAnimation, {
+          toValue: 1,
+          duration: 4000
+        }),
+        Animated.timing(colorAnimation, {
+          toValue: 0,
+          duration: 4000
+        })
+      ]),
+      {
+        iterations: 10
+      }
+    ).start();
   }
-  animateScoreBoard();
+
+  startAnimation();
 
   const letterColor = colorAnimation.interpolate({
     inputRange: [ 0, 1 ],
     outputRange: [ '#270035', '#b57800' ]
   });
+
+  props.navigation.addListener('willBlur', () => {
+    colorAnimation.stopAnimation();
+  })
 
   const nameBoxStlye = (color) => {
     return {
