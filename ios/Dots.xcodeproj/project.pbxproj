@@ -27,15 +27,15 @@
 		524ACEA8F3DE4E4AAF1A394E /* Raleway-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC6294C3984D46F59D43A7D6 /* Raleway-BoldItalic.ttf */; };
 		56E5A979AA8F450FAAE03863 /* Raleway-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B02FD82E76194020BB311C33 /* Raleway-BlackItalic.ttf */; };
 		5876EB5CBA744FE29E9CCF34 /* Raleway-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5CB7E738B3A4F85AEA67607 /* Raleway-SemiBoldItalic.ttf */; };
-		612FD15622E4041000A2B21C /* lineClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612FD14B22E4040E00A2B21C /* lineClick.wav */; };
-		612FD15722E4041000A2B21C /* introMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612FD14E22E4040E00A2B21C /* introMusic.mp3 */; };
 		612FD15822E4041000A2B21C /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612FD14F22E4040F00A2B21C /* explosion.wav */; };
 		612FD15922E4041000A2B21C /* gotem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612FD15022E4040F00A2B21C /* gotem.mp3 */; };
 		612FD15A22E4041000A2B21C /* score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612FD15122E4040F00A2B21C /* score.mp3 */; };
-		612FD15B22E4041000A2B21C /* inGameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612FD15222E4040F00A2B21C /* inGameMusic.mp3 */; };
 		612FD15C22E4041000A2B21C /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612FD15322E4040F00A2B21C /* wrong.wav */; };
 		612FD15D22E4041000A2B21C /* iseeu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612FD15422E4040F00A2B21C /* iseeu.mp3 */; };
 		612FD15E22E4041000A2B21C /* okay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 612FD15522E4041000A2B21C /* okay.mp3 */; };
+		61CB507C231C878F00196471 /* line_click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 61CB5079231C878E00196471 /* line_click.wav */; };
+		61CB507D231C878F00196471 /* intro_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61CB507A231C878E00196471 /* intro_music.mp3 */; };
+		61CB507E231C878F00196471 /* in_game_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61CB507B231C878E00196471 /* in_game_music.mp3 */; };
 		6F2D9733E2914DA9B675640F /* Raleway-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B13592062D7246798C65B743 /* Raleway-LightItalic.ttf */; };
 		740C4AD92D3D4B3C804CB248 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A6339DB55A540E1AE2B5827 /* Raleway-Medium.ttf */; };
 		74A416E017E06B849B0A9A4F /* libPods-Dots-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFD95BE9FC13A5EF8C71D3A /* libPods-Dots-tvOS.a */; };
@@ -103,15 +103,15 @@
 		5CAAACC5391E660980D6C0E4 /* Pods-DotsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DotsTests.debug.xcconfig"; path = "Target Support Files/Pods-DotsTests/Pods-DotsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D542B6A63DD48268A6EA5EC /* Raleway-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Light.ttf"; path = "../src/Raleway/Raleway-Light.ttf"; sourceTree = "<group>"; };
 		612FD14022E400A800A2B21C /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
-		612FD14B22E4040E00A2B21C /* lineClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lineClick.wav; path = ../src/components/Game/Sounds/lineClick.wav; sourceTree = "<group>"; };
-		612FD14E22E4040E00A2B21C /* introMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = introMusic.mp3; path = ../src/components/Game/Sounds/introMusic.mp3; sourceTree = "<group>"; };
 		612FD14F22E4040F00A2B21C /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = ../src/components/Game/Sounds/explosion.wav; sourceTree = "<group>"; };
 		612FD15022E4040F00A2B21C /* gotem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gotem.mp3; path = ../src/components/Game/Sounds/gotem.mp3; sourceTree = "<group>"; };
 		612FD15122E4040F00A2B21C /* score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = score.mp3; path = ../src/components/Game/Sounds/score.mp3; sourceTree = "<group>"; };
-		612FD15222E4040F00A2B21C /* inGameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = inGameMusic.mp3; path = ../src/components/Game/Sounds/inGameMusic.mp3; sourceTree = "<group>"; };
 		612FD15322E4040F00A2B21C /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = wrong.wav; path = ../src/components/Game/Sounds/wrong.wav; sourceTree = "<group>"; };
 		612FD15422E4040F00A2B21C /* iseeu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = iseeu.mp3; path = ../src/components/Game/Sounds/iseeu.mp3; sourceTree = "<group>"; };
 		612FD15522E4041000A2B21C /* okay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = okay.mp3; path = ../src/components/Game/Sounds/okay.mp3; sourceTree = "<group>"; };
+		61CB5079231C878E00196471 /* line_click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = line_click.wav; path = ../src/components/Game/Sounds/line_click.wav; sourceTree = "<group>"; };
+		61CB507A231C878E00196471 /* intro_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = intro_music.mp3; path = ../src/components/Game/Sounds/intro_music.mp3; sourceTree = "<group>"; };
+		61CB507B231C878E00196471 /* in_game_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = in_game_music.mp3; path = ../src/components/Game/Sounds/in_game_music.mp3; sourceTree = "<group>"; };
 		7289547A27A447B5B6215C43 /* Raleway-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Black.ttf"; path = "../src/Raleway/Raleway-Black.ttf"; sourceTree = "<group>"; };
 		792E17E219134449EAB74D9F /* Pods-Dots-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dots-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Dots-tvOSTests/Pods-Dots-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6339DB55A540E1AE2B5827 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Medium.ttf"; path = "../src/Raleway/Raleway-Medium.ttf"; sourceTree = "<group>"; };
@@ -280,12 +280,12 @@
 		C329828F59A1446B89427826 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				61CB507B231C878E00196471 /* in_game_music.mp3 */,
+				61CB507A231C878E00196471 /* intro_music.mp3 */,
+				61CB5079231C878E00196471 /* line_click.wav */,
 				612FD14F22E4040F00A2B21C /* explosion.wav */,
 				612FD15022E4040F00A2B21C /* gotem.mp3 */,
-				612FD15222E4040F00A2B21C /* inGameMusic.mp3 */,
-				612FD14E22E4040E00A2B21C /* introMusic.mp3 */,
 				612FD15422E4040F00A2B21C /* iseeu.mp3 */,
-				612FD14B22E4040E00A2B21C /* lineClick.wav */,
 				612FD15522E4041000A2B21C /* okay.mp3 */,
 				612FD15122E4040F00A2B21C /* score.mp3 */,
 				612FD15322E4040F00A2B21C /* wrong.wav */,
@@ -472,10 +472,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61CB507C231C878F00196471 /* line_click.wav in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				612FD15722E4041000A2B21C /* introMusic.mp3 in Resources */,
 				612FD15D22E4041000A2B21C /* iseeu.mp3 in Resources */,
-				612FD15622E4041000A2B21C /* lineClick.wav in Resources */,
 				612FD15922E4041000A2B21C /* gotem.mp3 in Resources */,
 				612FD15C22E4041000A2B21C /* wrong.wav in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -494,11 +493,12 @@
 				6F2D9733E2914DA9B675640F /* Raleway-LightItalic.ttf in Resources */,
 				612FD15A22E4041000A2B21C /* score.mp3 in Resources */,
 				740C4AD92D3D4B3C804CB248 /* Raleway-Medium.ttf in Resources */,
-				612FD15B22E4041000A2B21C /* inGameMusic.mp3 in Resources */,
 				B97929B0A0FA411EAF733C3D /* Raleway-MediumItalic.ttf in Resources */,
 				AC5387F432904A00AF8677FB /* Raleway-Regular.ttf in Resources */,
 				D31EA8CED3894FBEA06E65CF /* Raleway-SemiBold.ttf in Resources */,
 				5876EB5CBA744FE29E9CCF34 /* Raleway-SemiBoldItalic.ttf in Resources */,
+				61CB507E231C878F00196471 /* in_game_music.mp3 in Resources */,
+				61CB507D231C878F00196471 /* intro_music.mp3 in Resources */,
 				E2515A7AAFAD40DD8C2BB69F /* Raleway-Thin.ttf in Resources */,
 				0A4E855B13FF4D5D93E3568A /* Raleway-ThinItalic.ttf in Resources */,
 			);

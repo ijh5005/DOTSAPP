@@ -8,8 +8,6 @@ import {
 const pointer = require("../../../imgs/pointer.png");
 
 const Pointer = (props) => {
-  console.log("hey")
-
   const {startingLeft, startingBottom, duration, distance} = props;
 
   const stoppingLeft = startingLeft + distance;
