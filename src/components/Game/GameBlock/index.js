@@ -202,7 +202,7 @@ const GameBlock = (props) => {
       left: 0
     },
     foot: {
-      height: "120%",
+      height: "130%",
       width: "100%",
       top: "-10%",
       position: "absolute",
