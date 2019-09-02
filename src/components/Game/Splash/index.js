@@ -41,7 +41,7 @@ const Splash = (props) => {
           opacity: 0.8,
           margin: 10
         }}
-      >blackio</Text>
+      >blakio</Text>
 
     </View>
   </TouchableOpacity>)
