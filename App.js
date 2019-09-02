@@ -14,9 +14,11 @@ import Game from "./src/components/Game";
 import MotivationScreen from "./src/components/Game/MotivationScreen";
 import StoreScreen from "./src/components/Game/StoreScreen";
 import PlayGame from "./src/components/Game/PlayGame";
+import Splash from "./src/components/Game/Splash";
 
 const MainNavigator = createStackNavigator({
-  Home: { screen: Game },
+  Home: { screen: Splash },
+  HomePage: { screen: Game },
   Motivation: { screen: MotivationScreen },
   Store: { screen: StoreScreen },
   Game: { screen: PlayGame }

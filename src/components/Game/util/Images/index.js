@@ -6,6 +6,7 @@ const goldBlock = require("../../../../imgs/asset_goldbrick.png");
 const gold = require("../../../../imgs/gold.png");
 const rhino = require("../../../../imgs/asset_rhino.png");
 const foot = require("../../../../imgs/foot.png");
+const io = require("../../../../imgs/io.png");
 
 export const images = {
   cheetahImg,
@@ -15,5 +16,6 @@ export const images = {
   goldBlock,
   rhino,
   foot,
-  gold
+  gold,
+  io
 }
