@@ -27,7 +27,7 @@ const GameScoreBoard = (props) => {
         })
       ]),
       {
-        iterations: 100
+        iterations: 4
       }
     ).start();
   }

@@ -27,7 +27,7 @@ const StoreScreen = (props) => {
         })
       ]),
       {
-        iterations: 10
+        iterations: 4
       }
     ).start();
   }

@@ -83,7 +83,7 @@ const HomeScreen = (props) => {
         })
       ]),
       {
-        iterations: 10
+        iterations: 4
       }
     ).start();
   }

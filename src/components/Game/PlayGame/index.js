@@ -557,31 +557,36 @@ const PlayGame = (props) => {
     setShowInformativeScreen(false);
   }
 
-  const startingColor = 0;
-  const endingColor = 1;
-  let colorAnimation = new Animated.Value(startingColor);
+  let colorAnimation = new Animated.Value(0);
 
-  const animateScoreBoard = () => {
-    Animated.timing(
-      colorAnimation,
-      { toValue: endingColor, duration: 1000 }
-    ).start(() => {
-      Animated.timing(
-        colorAnimation,
-        { toValue: startingColor, duration: 1000 }
-      ).start(({finished}) => {
-        if(finished){
-          animateScoreBoard();
-        }
-      });
-    });
+  const startAnimation = () => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(colorAnimation, {
+          toValue: 1,
+          duration: 1000
+        }),
+        Animated.timing(colorAnimation, {
+          toValue: 0,
+          duration: 1000
+        })
+      ]),
+      {
+        iterations: 4
+      }
+    ).start();
   }
-  animateScoreBoard();
+
+  startAnimation();
 
   const letterColor = colorAnimation.interpolate({
     inputRange: [ 0, 1 ],
-    outputRange: [ 'transparent', '#b57800' ]
+    outputRange: [ '#b57800', 'transparent' ]
   });
+
+  props.navigation.addListener('willBlur', () => {
+    colorAnimation.stopAnimation();
+  })
 
   return (<View style={styles.boardStyle}>
     <Image style={styles.imgStyle} source={images.background} />
