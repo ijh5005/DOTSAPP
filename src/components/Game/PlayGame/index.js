@@ -384,8 +384,6 @@ const PlayGame = (props) => {
       return sounds.wrong.play()
     }
 
-    sounds.lineClick.setCurrentTime(0);
-
     const boxName = boxInfo.getBoxNameByIndex(index);
     const boxObj = boxInfo.getBoxObjByBoxName(board, boxName);
     const { disabled, borders } = boxObj;
@@ -416,7 +414,10 @@ const PlayGame = (props) => {
     }
 
     if(!disabled || !boxInfo.isDisabled(board, adjBoxName)){
-      sounds.lineClick.play();
+      setTimeout(() => {
+        sounds.lineClick.setCurrentTime(0);
+        sounds.lineClick.play();
+      })
     }
 
     updatedConnections.length && adjustConnectedBoxes(updatedConnections);
