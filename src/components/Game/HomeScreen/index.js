@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   Image,
   Animated,
-  StyleSheet
+  StyleSheet,
+  AppState
 } from "react-native";
 
 import { images } from "../util/Images";
@@ -22,6 +23,20 @@ const nameBoxStlye = (color = "#fff", fontSize = 20, opacity = 1) => {
 }
 
 const HomeScreen = (props) => {
+
+  const [appState] = useState(AppState.currentState)
+
+  useEffect(() => {
+    AppState.addEventListener('change', handleAppStateChange)
+  }, []);
+
+  const handleAppStateChange = (nextAppState) => {
+    if (nextAppState === 'active'){
+      sounds.introMusic.setVolume(1);
+    } else {
+      sounds.introMusic.setVolume(0);
+    }
+  };
 
   const playGameMusic = () => {
     sounds.introMusic.setCurrentTime(0);

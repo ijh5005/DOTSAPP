@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
-// import AsyncStorage from '@react-native-community/async-storage';
 
 import HomeScreen from "./HomeScreen";
 import { images } from "./util/Images";
@@ -8,7 +7,6 @@ import { config } from "./util/Settings";
 
 const Game = (props) => {
   const { navigate } = props.navigation;
-  // const clearAllStorage = async () => await AsyncStorage.clear();
   const startGame = () => navigate("Game");
   const motivationPage = () => navigate("Motivation");
   const storePage = () => navigate("Store");

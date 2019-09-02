@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   Animated,
-  StyleSheet
+  StyleSheet,
+  AppState
 } from "react-native";
 // import AsyncStorage from '@react-native-community/async-storage';
 
@@ -31,13 +32,25 @@ import { sounds } from "../Sounds";
 
 const PlayGame = (props) => {
 
-  const playGameMusic = () => {
-    setTimeout(() => {
-      sounds.inGameMusic.setCurrentTime(0);
-      sounds.inGameMusic.play();
-      sounds.inGameMusic.setNumberOfLoops(-1);
+  const [appState] = useState(AppState.currentState)
+
+  useEffect(() => {
+    AppState.addEventListener('change', handleAppStateChange)
+  }, []);
+
+  const handleAppStateChange = (nextAppState) => {
+    if(nextAppState === 'active'){
       sounds.inGameMusic.setVolume(0.4);
-    })
+    } else {
+      sounds.inGameMusic.setVolume(0);
+    }
+  };
+
+  const playGameMusic = () => {
+    sounds.inGameMusic.setCurrentTime(0);
+    sounds.inGameMusic.play();
+    sounds.inGameMusic.setNumberOfLoops(-1);
+    sounds.inGameMusic.setVolume(0.4);
   }
 
   props.navigation.addListener('willFocus', () => {
