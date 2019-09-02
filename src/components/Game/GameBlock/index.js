@@ -15,23 +15,21 @@ const GameBlock = (props) => {
   let opacity = new Animated.Value(0);
   useEffect(() => {
     if(props.explodingBoxes[props.index]){
-      setTimeout(() => {
+      Animated.timing(
+        opacity,
+        {
+          toValue: 1,
+          duration: 100,
+        }
+      ).start(() => {
         Animated.timing(
           opacity,
           {
-            toValue: 1,
-            duration: 100,
+            toValue: 0,
+            duration: 400,
           }
-        ).start(() => {
-          Animated.timing(
-            opacity,
-            {
-              toValue: 0,
-              duration: 500,
-            }
-          ).start();
-        });
-      })
+        ).start();
+      });
     }
   }, [props.explodingBoxes]);
 
