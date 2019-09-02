@@ -310,9 +310,7 @@ const GameBlock = (props) => {
 
       {showPointer && <Pointer
             startingLeft={startingLeft}
-            startingBottom={startingBottom}
-            duration={500}
-            distance={10}/>}
+            startingBottom={startingBottom}/>}
 
     </Animated.View>
   </TouchableOpacity>)

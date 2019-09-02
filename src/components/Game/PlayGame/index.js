@@ -518,9 +518,7 @@ const PlayGame = (props) => {
       setYouWin(false);
       setBoardTotalScore(util.getBoardScore(gameBoards[level]));
       setCurrentLevel(level);
-      console.log(levelText)
       if(config.informationBoard.includes(levelText)){
-        console.log("open")
         setShowInformativeScreen(true);
         const type = config.informationText[`${levelText}`];
         setInformationType(type)
@@ -667,9 +665,7 @@ const PlayGame = (props) => {
             />
             {(bombToClick === data) && <Pointer
                               startingLeft={50}
-                              startingBottom={50}
-                              duration={500}
-                              distance={10}/>}
+                              startingBottom={50}/>}
           </Animated.View>
         </TouchableOpacity>)
       })}
