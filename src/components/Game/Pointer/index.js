@@ -22,13 +22,12 @@ const Pointer = (props) => {
     pointerEvents="none"
     style={{
       position: "absolute",
-      bottom: startingBottom - 10,
-      left: startingLeft - 30,
+      bottom: startingBottom - 8,
+      left: startingLeft - 20,
       height: 100,
       width: 100,
       justifyContent: "center",
-      alignItems: "center",
-      zIndex: 100
+      alignItems: "center"
     }}>
     <Image
       style={{flex: 1, transform: [{ rotate: '-135deg' }]}}

@@ -91,6 +91,7 @@ const PlayGame = (props) => {
   const [bombToClick, setBombToClick] = useState(null);
   const [waitTime, setWaitTime] = useState(0);
   const [turnText, setTurnText] = useState("your turn");
+  const [turns, setTurns] = useState(0);
 
   const checkComputerMove = () => {
     const move = computerMove(borders, connectedBoxes, board, footIndexes);
@@ -109,6 +110,11 @@ const PlayGame = (props) => {
     } else {
       setTurnText("computer turn")
     }
+    if(turns !== 0){
+      sounds.lineClick.setCurrentTime(0);
+      sounds.lineClick.play();
+    }
+    setTurns(turns + 1);
   }, [playerTurn])
 
   useEffect(() => {
@@ -415,8 +421,8 @@ const PlayGame = (props) => {
 
     if(!disabled || !boxInfo.isDisabled(board, adjBoxName)){
       setTimeout(() => {
-        sounds.lineClick.setCurrentTime(0);
-        sounds.lineClick.play();
+        // sounds.lineClick.setCurrentTime(0);
+        // sounds.lineClick.play();
       })
     }
 

@@ -60,7 +60,9 @@ const ScreenText = (props) => {
       fontFamily: "Raleway-Light",
       fontSize: 26,
       textAlign: "center",
-      opacity: 0.8
+      opacity: 0.8,
+      backgroundColor: "rgba(39,0,56, 0.6)",
+      borderRadius: 10
     }
   };
 
@@ -79,8 +81,8 @@ const ScreenText = (props) => {
   return (<Animated.View style={gameOverStyle(top, opacity)} removeClippedSubviews={true}>
     <View style={styles.textSectionStlye}>
       <Text style={styles.text}>{t1}</Text>
-      <Text style={{...styles.text, ...{color: "#FF0000"}}}>{t2}</Text>
-      <Text style={styles.text}>{t3}</Text>
+      {t2 && <Text style={{...styles.text, ...{color: "#FF0000"}}}>{t2}</Text>}
+      {t3 && <Text style={styles.text}>{t3}</Text>}
     </View>
   </Animated.View>)
 }
