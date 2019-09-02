@@ -15,16 +15,16 @@ const information = {
     text: "The oppressed are allowed once every few years to decide which particular representatives of the oppressing class are to represent and repress them.",
     author: "Karl Marx",
     image: images.foot,
-    height: 260,
-    width: 203,
+    height: 220,
+    width: 172,
     title: "Foot of Oppression"
   },
   makeda: {
     text: "Makeda is the mysterious and majestic Queen of Sheba, and the beloved of King Solomon of Judea.",
     author: "Ethiopia",
     image: images.makedaImg,
-    height: 250,
-    width: 350,
+    height: 220,
+    width: 300,
     title: "Makeda"
   }
 }
@@ -92,23 +92,21 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     fontFamily: "Raleway-ExtraLight",
-    fontSize: 26,
+    fontSize: 24,
     textAlign: "center",
-    width: config.width*0.9,
-    opacity: 0.8
+    width: config.width*0.9
   },
   author: {
     color: "#b57800",
-    fontFamily: "Raleway-ExtraBold",
-    fontSize: 35,
+    fontFamily: "Raleway-Medium",
+    fontSize: 26,
     textAlign: "center",
     letterSpacing: 6
   },
   title: {
-    color: "#fff",
+    color: "#b57800",
     fontFamily: "Raleway-ExtraBold",
     fontSize: 35,
-    textAlign: "center",
-    opacity: 0.4
+    textAlign: "center"
   }
 });

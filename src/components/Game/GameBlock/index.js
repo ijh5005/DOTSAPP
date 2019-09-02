@@ -225,7 +225,7 @@ const GameBlock = (props) => {
     startingBottom = 20;
   }
 
-  const showPointer = (startingLeft && startingBottom) || blinkingBox;
+  let showPointer = (startingLeft && startingBottom) || blinkingBox;
 
   return (<TouchableOpacity onPress={() => clickGameBox()}>
     <Animated.View style={{...styles.box, ...borderStyles}}>
