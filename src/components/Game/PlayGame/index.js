@@ -235,6 +235,8 @@ const PlayGame = (props) => {
   ) => {
     if(playerTurn !== "first") return true;
 
+    debugger
+
     let passedRestrictions = true;
     if(training && training.yourMoves.length){
 
@@ -248,7 +250,7 @@ const PlayGame = (props) => {
           passedRestrictions = false;
         }
       } else if(restriction.type === "boxClick"){
-        if(clickBox && (clickBox === restriction.clickBox)){
+        if(clickBox && (clickBox === restriction.clickBox) && !side){
           passedRestrictions = true;
           removeUsedMoveRestriction();
         } else {
