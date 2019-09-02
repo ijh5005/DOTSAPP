@@ -20,13 +20,14 @@ const Pointer = (props) => {
       position: "absolute",
       bottom: startingBottom,
       left: startingLeft,
-      height: 26,
-      width: 26,
+      height: 60,
+      width: 60,
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+      zIndex: 100
     }}>
     <Image
-      style={{flex: 1, transform: [{ rotate: '-30deg'}]}}
+      style={{flex: 1, transform: [{ rotate: '-45deg'}]}}
       source={pointer}
       resizeMode="contain"
     />

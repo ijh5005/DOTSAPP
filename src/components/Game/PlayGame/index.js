@@ -37,7 +37,7 @@ const PlayGame = (props) => {
       sounds.inGameMusic.play();
       sounds.inGameMusic.setNumberOfLoops(-1);
       sounds.inGameMusic.setVolume(0.4);
-    }, 500)
+    })
   }
 
   props.navigation.addListener('willFocus', () => {

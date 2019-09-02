@@ -56,9 +56,11 @@ const ScreenText = (props) => {
       alignItems: "center"
     },
     text: {
-      color: "#b57800",
-      fontSize: font || 40,
-      fontFamily: "Raleway-ExtraBoldItalic"
+      color: "#fff",
+      fontFamily: "Raleway-ExtraLight",
+      fontSize: 26,
+      textAlign: "center",
+      opacity: 0.8
     }
   };
 
@@ -68,11 +70,9 @@ const ScreenText = (props) => {
       height: config.height,
       position: "absolute",
       height: 40,
-      top: 110,
-      //top,
+      top: 90,
       left: 0,
       opacity: 1
-      //opacity
     }
   }
 

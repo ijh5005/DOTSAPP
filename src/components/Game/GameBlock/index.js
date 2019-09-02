@@ -31,7 +31,7 @@ const GameBlock = (props) => {
             }
           ).start();
         });
-      }, props.explodingBoxes[props.index].waitTime)
+      })
     }
   }, [props.explodingBoxes]);
 
@@ -58,32 +58,6 @@ const GameBlock = (props) => {
     blinkingBox,
     navigation
   } = props;
-
-  // props.navigation.addListener('willBlur', () => stopAnimation = true);
-
-  // let stopAnimation = false;
-  // const startingColor = 0;
-  // const endingColor = 1;
-  // let colorAnimation = new Animated.Value(startingColor);
-  // const letterColor = colorAnimation.interpolate({
-  //   inputRange: [ 0, 1 ],
-  //   outputRange: [ '#49115e', '#b57800' ]
-  // });
-  //
-  // useEffect(() => {
-  //   const animateScoreBoard = (obj) => {
-  //     Animated.timing(
-  //       colorAnimation,
-  //       { toValue: endingColor, duration: 500, isInteraction: false }
-  //     ).start(() => {
-  //       Animated.timing(
-  //         colorAnimation,
-  //         { toValue: startingColor, duration: 500, isInteraction: false }
-  //       ).start(animateScoreBoard);
-  //     });
-  //   }
-  //   animateScoreBoard();
-  // }, [])
 
   let stopAnimation;
   let startingColor;
@@ -140,12 +114,6 @@ const GameBlock = (props) => {
   let borderRightWidth = (isTopRightCornerBox || isBottomRightCornerBox || isRightSideRow) ? 2 : 1;
   let borderBottomWidth = (isBottomRightCornerBox || isBottomLeftCornerBox || isBottomSideRow) ? 2 : 1;
   let borderLeftWidth = (isTopLeftCornerBox || isBottomLeftCornerBox || isLeftSideRow) ? 2 : 1;
-  // if(computerCurrentMove){
-  //   borderTopWidth++
-  //   borderRightWidth++
-  //   borderBottomWidth++
-  //   borderLeftWidth++
-  // }
 
   const styles = {
     box: { // replace #F9A600 with letter when ok to animate
@@ -162,11 +130,8 @@ const GameBlock = (props) => {
       borderTopColor: topBorderColor,
       borderRightColor: rightBorderColor,
       borderBottomColor: bottomBorderColor,
-      borderLeftColor: leftBorderColor
-      // borderTopColor: (blinkingEdge === "top") ? letterColor : topBorderColor,
-      // borderRightColor: (blinkingEdge === "right") ? letterColor : rightBorderColor,
-      // borderBottomColor: (blinkingEdge === "bottom") ? letterColor : bottomBorderColor,
-      // borderLeftColor: (blinkingEdge === "left") ? letterColor : leftBorderColor
+      borderLeftColor: leftBorderColor,
+      zIndex: 0
     },
     top: {
       height: "40%",
@@ -308,11 +273,11 @@ const GameBlock = (props) => {
         />
       </View>}
 
-      {showPointer && <Pointer
-            startingLeft={startingLeft}
-            startingBottom={startingBottom}/>}
-
     </Animated.View>
+    {showPointer && <Pointer
+          style={{ zIndex: 1 }}
+          startingLeft={startingLeft}
+          startingBottom={startingBottom}/>}
   </TouchableOpacity>)
 
 }

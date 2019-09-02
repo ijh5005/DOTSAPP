@@ -2,35 +2,35 @@ export const trainRestrictions = {
   level1: {
     computerMoves: [{
         type: "clickSide",
-        box: 20,
+        box: 19,
         side: "top"
       }, {
         type: "clickSide",
-        box: 13,
+        box: 14,
         side: "right"
       }
     ],
     yourMoves: [{
       type: "clickSide",
-      boxes: [14, 15],
+      boxes: [15, 16],
       sides: ["right", "left"],
       text: "tap between",
       text2: "two dots"
     }, {
       type: "clickSide",
-      boxes: [21, 22],
-      sides: ["right", "left"],
+      boxes: [9, 15],
+      sides: ["bottom", "top"],
       text: "draw more boxes than",
       text2: "your opponent",
       text3: "to win"
     }, {
       type: "clickSide",
-      boxes: [8, 14],
+      boxes: [15, 21],
       sides: ["bottom", "top"],
       text: "your turn"
     }, {
       type: "clickSide",
-      boxes: [25, 26],
+      boxes: [10, 11],
       sides: ["right", "left"],
       text: "your turn again",
       text2: "because you scored"
@@ -48,7 +48,7 @@ export const trainRestrictions = {
       text2: "Foot Of Oppression"
     }, {
       type: "boxClick",
-      clickBox: 20,
+      clickBox: 16,
       text: "click the box",
       text2: "it explodes right and left"
     }, {
@@ -57,7 +57,7 @@ export const trainRestrictions = {
       text: "click a panther"
     }, {
       type: "boxClick",
-      clickBox: 15,
+      clickBox: 10,
       text: "it explodes up and down"
     }, {
       text: "remove the",
