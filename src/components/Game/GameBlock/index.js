@@ -27,7 +27,7 @@ const GameBlock = (props) => {
             opacity,
             {
               toValue: 0,
-              duration: 100,
+              duration: 500,
             }
           ).start();
         });
