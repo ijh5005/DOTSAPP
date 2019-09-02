@@ -254,8 +254,6 @@ const PlayGame = (props) => {
   ) => {
     if(playerTurn !== "first") return true;
 
-    debugger
-
     let passedRestrictions = true;
     if(training && training.yourMoves.length){
 
