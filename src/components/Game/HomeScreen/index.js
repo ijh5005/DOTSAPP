@@ -38,9 +38,7 @@ const HomeScreen = (props) => {
     startAnimation();
     sounds.introMusic.getCurrentTime((seconds) => {
       if(seconds === 0){
-        setTimeout(() => {
-          playGameMusic();
-        }, 500)
+        playGameMusic();
       }
     });
   });

@@ -12,6 +12,8 @@ import { images } from "../util/Images";
 
 const GameBlock = (props) => {
 
+  const [showPointer, setShowPointer] = useState(false)
+
   let opacity = new Animated.Value(0);
   useEffect(() => {
     if(props.explodingBoxes[props.index]){
@@ -225,7 +227,13 @@ const GameBlock = (props) => {
     startingBottom = 20;
   }
 
-  let showPointer = (startingLeft && startingBottom) || blinkingBox;
+  useEffect(() => {
+    if((startingLeft && startingBottom) || blinkingBox){
+      setShowPointer(true)
+    } else {
+      setShowPointer(false)
+    }
+  });
 
   return (<TouchableOpacity onPress={() => clickGameBox()}>
     <Animated.View style={{...styles.box, ...borderStyles}}>

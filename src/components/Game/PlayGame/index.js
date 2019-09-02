@@ -674,14 +674,10 @@ const PlayGame = (props) => {
     <TouchableOpacity
       style={styles.goldSection}
       onPress={config.isDebuggingMode ? () => { checkComputerMove() } : null}>
-      {/*<Text style={styles.goldText}>1000</Text>*/}
       <Text style={{
         ...styles.goldText,
         color: "rgba(255, 255, 255, 0.2)"
       }}>{turnText}</Text>
-      {/*<View style={styles.gold}>
-        <Image style={styles.goldImg} source={images.goldBlock} resizeMode="contain" />
-      </View>*/}
     </TouchableOpacity>
 
     <View style={styles.levelSelectSection}>
