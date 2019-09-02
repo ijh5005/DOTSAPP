@@ -57,7 +57,7 @@ const ScreenText = (props) => {
     },
     text: {
       color: "#fff",
-      fontFamily: "Raleway-ExtraLight",
+      fontFamily: "Raleway-Light",
       fontSize: 26,
       textAlign: "center",
       opacity: 0.8

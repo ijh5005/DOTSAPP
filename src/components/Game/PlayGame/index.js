@@ -615,6 +615,16 @@ const PlayGame = (props) => {
           blinkingBox = true;
         }
 
+        let startingLeft = false;
+        let startingBottom = false;
+        if(blinkingEdge === "top"){
+          startingLeft = 35;
+          startingBottom = 60;
+        } else if (blinkingEdge === "left" || blinkingBox) {
+          startingLeft = blinkingBox ? 60 : 10;
+          startingBottom = 20;
+        }
+
         return (<GameBlock
           isDisabledBox={isDisabledBox}
           borders={borders}
@@ -638,6 +648,8 @@ const PlayGame = (props) => {
           footIndexes={footIndexes}
           blinkingEdge={blinkingEdge}
           blinkingBox={blinkingBox}
+          startingLeft={startingLeft}
+          startingBottom={startingBottom}
           navigation={props.navigation}
           key={index} />)})}
     </View>

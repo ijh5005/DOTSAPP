@@ -13,6 +13,10 @@ const Pointer = (props) => {
     startingBottom
   } = props;
 
+  if(!startingLeft && !startingBottom){
+    return <View></View>
+  }
+
   return (<View
     removeClippedSubviews={true}
     pointerEvents="none"
