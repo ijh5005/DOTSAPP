@@ -72,7 +72,7 @@ const ScreenText = (props) => {
       height: config.height,
       position: "absolute",
       height: 40,
-      top: 90,
+      top: 50,
       left: 0,
       opacity: 1
     }

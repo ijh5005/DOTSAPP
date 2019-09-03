@@ -122,7 +122,6 @@ const GameBlock = (props) => {
       width: 53,
       position: "relative",
       opacity: isDisabledBox ? 0 : 1,
-      zIndex: isDisabledBox ? 1 : 5,
       borderTopWidth: borderTopWidth,
       borderRightWidth: borderRightWidth,
       borderBottomWidth: borderBottomWidth,
@@ -130,8 +129,7 @@ const GameBlock = (props) => {
       borderTopColor: topBorderColor,
       borderRightColor: rightBorderColor,
       borderBottomColor: bottomBorderColor,
-      borderLeftColor: leftBorderColor,
-      zIndex: 0
+      borderLeftColor: leftBorderColor
     },
     top: {
       height: "40%",

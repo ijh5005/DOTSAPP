@@ -189,7 +189,7 @@ const PlayGame = (props) => {
           return setGameIsOver(true);
         }
       }
-    }, 400 + waitTime)
+    })
   }, [playerTurn, whoScored]); // this is only used if borders or connectedBoxes change
 
   useEffect(() => {
@@ -602,8 +602,6 @@ const PlayGame = (props) => {
       playerTurn={playerTurn}
       navigation={props.navigation}
     />
-
-    <View style={styles.space}></View>
 
     <View style={{width: 318, height: 380, flexDirection: "row", flexWrap: "wrap", paddingTop: 40}}>
       {keys.map((data, index) => {
