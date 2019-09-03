@@ -61,7 +61,7 @@ const ScreenText = (props) => {
       fontSize: 26,
       textAlign: "center",
       opacity: 0.8,
-      backgroundColor: "rgba(39,0,56, 0.6)",
+      backgroundColor: "rgba(39,0,56, 0.9)",
       borderRadius: 10
     }
   };
